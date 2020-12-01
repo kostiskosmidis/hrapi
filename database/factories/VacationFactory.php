@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Vacation;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+
 
 class VacationFactory extends Factory
 {
@@ -21,8 +23,12 @@ class VacationFactory extends Factory
      */
     public function definition()
     {
+       
         return [
-            //
+            'from' => $this->faker->date(),
+            'to' => $this->faker->date(),
+            'user_id' => User::factory()->create()->id,
+                        //date-time fake to check
         ];
     }
 }

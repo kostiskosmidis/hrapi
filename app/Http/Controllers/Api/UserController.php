@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Resources\UserResource;
 
 use App\Models\User;
 use App\Models\Vacation;
@@ -87,12 +88,18 @@ class UserController extends Controller
 
     public function index()
     {
-        return User::all();
+        // $users = UserResource::collection(User::all());
+        // $count = count($users);
+
+        // return response()->json(compact('users', 'count'));
+
+        $users = User::all();
+        return response()->json(compact('users'));
     }
 
     public function show(User $user)
     {
-        return $user;
+        return response()->json(compact('user'));
     }
 
     public function store(Request $request)
@@ -126,6 +133,24 @@ class UserController extends Controller
       }
           return response()->json(['message'=>'No Vacations Found','data'=>null],200);
   }
+
+
+  public function showskills(User $user){ //index
+    $skills = $user->skills;
+    if(count($skills) > 0){
+        return response()->json(['message'=>'Success','data'=>$skills],200);
+    }
+        return response()->json(['message'=>'No Vacations Found','data'=>null],200);
+}
+
+public function storevacations(User $user){ //na dw thn sync
+    $vacations = $user->vacations;
+    if(count($vacations) > 0){
+        return response()->json(['message'=>'Success','data'=>$vacations],200);
+    }
+        return response()->json(['message'=>'No Vacations Found','data'=>null],200);
+}
+
 
 
 }

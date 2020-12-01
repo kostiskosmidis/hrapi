@@ -19,12 +19,13 @@ class SkillController extends Controller
      
       public function index()
       {
-          return Skill::all();
+        $skills = Skill::all();
+        return response()->json(compact('skills'));
       }
   
       public function show(Skill $skill)
       {
-          return $skill;
+        return response()->json(compact('skill'));
       }
   
       public function store(SkillStoreRequest $request)

@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\SkillController;
 use App\Http\Controllers\Api\VacationController;
 use App\Http\Controllers\Api\DepartmentController;
+use \App\Http\Controllers\Api\UserSkillController;
 use App\Models\User;
 use App\Models\Skill;
 /*
@@ -27,9 +28,7 @@ Route::post('/users', [UserController::class,'store']);
 Route::put('/users/{user}', [UserController::class,'update']);
 Route::delete('/users/{user}',[UserController::class,'delete']);
 
-
-
-//Route::get('/skills', [SkillController::class,'getAllSkills']);
+Route::get('/users/{id}/skills', [UserSkillController::class, 'index']);
 
 Route::get('skills', [SkillController::class,'index']);
 Route::get('skills/{skill}', [SkillController::class,'show']);
@@ -52,3 +51,8 @@ Route::delete('vacations/{vacation}', [VacationController::class,'delete']);
 
 
 Route::get('/users/{user}/vacations',[UserController::class,'showvacations']);
+
+
+Route::get('/users/{user}/skills',[UserController::class,'showskills']);
+
+Route::apiResource('departments.users',DepartmentController::class,['only'=>['store1','update1','destroy1']]);

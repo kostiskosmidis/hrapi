@@ -12,12 +12,13 @@ class Vacation extends Model
     protected $fillable = [
         'from',
         'to',
+        'user_id',
     ];
 
     protected $casts = [
-        'from' => 'date',
-        'to'   => 'date',
-    ];
+        'from' => 'datetime',
+        'to'   => 'datetime',
+        ];
 
     public function user(){
         return $this->belongsTo('App\Models\User');

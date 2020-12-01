@@ -37,17 +37,32 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    
+//     //     $this->renderable(function(Throwable $e,$request){
+//     //      if($request->is('api/*')){
+//     //        return response()->json(['message'=>$e->getMessage()],500);
+//     //      }
+//     //     // if $e instanceof SkillNotFoundException
+//     //     //return  response()->json ([
+         
+//     //    // ])
+//     //     //if ($e instanceof ValidationException/NotFoundHttpException
+//     //    // });
+//     //     // $this->reportable(function (Throwable $e) {
+//     //     //     //
+//     //     // });
+//     // }
 
-//     public function render($request, Exception $exception)
-// {
-//     // This will replace our 404 response with
-//     // a JSON response.
-//     if ($exception instanceof ModelNotFoundException) {
-//         return response()->json([
-//             'error' => 'Resource not found'
-//         ], 404);
-//     }
+// //     public function render($request, Exception $exception)
+// // {
+// //     // This will replace our 404 response with
+// //     // a JSON response.
+// //     if ($exception instanceof ModelNotFoundException) {
+// //         return response()->json([
+// //             'error' => 'Resource not found'
+// //         ], 404);
+// //     }
 
-//     return parent::render($request, $exception);
-// }
+// //     return parent::render($request, $exception);
+// // }
 }

@@ -45,11 +45,16 @@ class User extends Authenticatable
 
     public function skills()
     {
-        return $this->belongsToMany('App\Models\Skill');
+        return $this->belongsToMany(Skill::class, 'user_skill');
     }
 
     public function vacations()
     {
         return $this->hasMany('App\Models\Vacation');
+    }
+
+    public function departments()
+    {
+        return $this->belongsTo('App\Models\Department');
     }
 }

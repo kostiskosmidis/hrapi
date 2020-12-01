@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\User;
 
 class DepartmentController extends Controller
 {
@@ -38,4 +39,25 @@ class DepartmentController extends Controller
   
           return response()->json(null, 204);
       }
+
+
+      public function update1(Department $department,User $user){
+       $user->department()->associate($department);
+
+       //$user->save();
+
+       return response()->json(null,204);
+
+      }
+
+
+      public function destroy1(Department $department,User $user){
+        $user->department()->dissociate($department);
+ 
+        //$user->save();
+ 
+        return response()->json(null,204);
+ 
+       }
+
 }

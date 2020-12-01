@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Department;
+use App\Models\User;
 class DepartmentSeeder extends Seeder
 {
     /**
@@ -14,5 +15,7 @@ class DepartmentSeeder extends Seeder
     public function run()
     {
         //
+        Department::factory()->times(10)->create();
+        //->has(User::factory())->create();
     }
 }

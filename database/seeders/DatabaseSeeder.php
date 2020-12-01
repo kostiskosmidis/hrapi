@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         //$department = \App\Models\Department::factory(10)->create();
 
-        //$vacation = \App\Models\Vacation::factory(10)->create();
+        $vacations = \App\Models\Vacation::factory(10)->create();
 
         $this->call([
             UserSeeder::class,

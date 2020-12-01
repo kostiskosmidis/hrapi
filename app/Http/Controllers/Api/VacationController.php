@@ -10,12 +10,14 @@ class VacationController extends Controller
 {
     public function index()
       {
-          return Vacation::all();
+        $vacations = Vacation::all();
+        return response()->json(compact('vacations'));
+          
       }
   
       public function show(Vacation $vacation)
       {
-          return $vacation;
+        return response()->json(compact('vacation'));
       }
   
       public function store(Request $request)

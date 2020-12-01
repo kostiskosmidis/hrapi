@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Vacation;
 class VacationSeeder extends Seeder
 {
     /**
@@ -14,5 +14,6 @@ class VacationSeeder extends Seeder
     public function run()
     {
         //
+        Vacation::factory()->times(50)->create();
     }
 }
